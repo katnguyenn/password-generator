@@ -37,6 +37,23 @@ function writePassword() {
         alert("Great! Just a few more questions before we generate your secure password.");
       }
 
+// User selects which character type to include in their password
+
+  var passwordLowerCase = confirm("Do you want to have lowercase letters in your password?");
+  var passwordUpperCase = confirm("Do you want to have uppercase letters in your password?");
+  var passwordNumber = confirm("Do you want to include numbers in your password?");
+  var passwordChar = confirm("Do you want to include special characters in your password?");
+      if (passwordLowerCase === false && passwordUpperCase === false && passwordNumber === false && passwordChar === false) {
+        alert("You must choose at least one criteria.");
+  var passwordLowerCase = confirm("Do you want to have lowercase letters in your password?");
+  var passwordUpperCase = confirm("Do you want to have uppercase letters in your password?");
+  var passwordNumber = confirm("Do you want to include numbers in your password?");
+  var passwordChar = confirm("Do you want to include special characters in your password?");
+     } else {
+       alert();
+     }
     }
+
+  
 
 
