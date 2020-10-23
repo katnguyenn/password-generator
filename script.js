@@ -11,7 +11,7 @@ var number = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 var specialChar = ["!", "%", "&", ",", "*", "+", "-", ".", "/", "<", ">", "?","~"];
 var letterLower = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 var letterUpper = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
-var generatePass = "";
+
 
 // Function to generate desired number of characters in password
 
@@ -53,20 +53,66 @@ function generatePassword() {
 // Add parameters to an array
 
 var generatePass = [];
+var guaranteedChar = [];
+
+console.log(generatePass);
 
 if (passwordLowerCase === true) {
-  generatePass.push(passwordLowerCase);
+  guaranteedChar.push("a");
+
+  for(let i =0; i < letterLower.length; i++){
+    generatePass.push(letterLower[i]);
+  }
+  passwordLength --
 }
 
 if (passwordUpperCase === true) {
-  generatePass.push(passwordUpperCase);
+  guaranteedChar.push("K");
+  
+  for(let i =0; i < letterUpper.length; i++){
+    generatePass.push(letterUpper[i]);
+  }
+  passwordLength --
 }
 
-if (passwordNumber === true) 
-  generatePass.push(passwordNumber);
+if (passwordNumber === true) {
+  guaranteedChar.push("4"); 
+
+  for(let i =0; i < number.length; i++){
+    generatePass.push(number[i]);
+  }
+  passwordLength --
 }
 
 if (passwordChar === true) {
-  generatePass.push(passwordChar);
+  guaranteedChar.push("!");
+  
+  for(let i =0; i < specialChar.length; i++){
+    generatePass.push(specialChar[i]);
+  }
+  passwordLength --
 }
 
+// Compute random password 
+  var fPassword = [];
+
+  for (let i = 0; i < passwordLength; i++) {
+    fPassword.push(generatePass[(Math.floor(Math.random() * generatePass.length))]);
+  }
+
+var x = fPassword.concat(guaranteedChar);
+
+
+return x;
+
+}
+
+
+
+function writePassword() {
+  var password = generatePassword();
+  var passwordText = document.querySelector("#password");
+
+  passwordText.value = password;
+
+}
